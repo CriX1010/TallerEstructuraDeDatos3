@@ -6,9 +6,9 @@ private:
 public:
 
     NodoGrafo(int id);
-    bool es_directorio();
+    virtual bool es_directorio();
     int* lista_padres();
-    int obtener_id();
+    int obtener_id() const {return this->id;};
     ~NodoGrafo();
 };
 
