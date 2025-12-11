@@ -6,7 +6,7 @@
 class NodoBHoja : public NodoBPlusBase {
 private:
     NodoGrafo** datos;
-    NodoBHoja* siguiente;
+    NodoBHoja* siguiente_hoja;
 
 public:
     NodoBHoja(int orden);

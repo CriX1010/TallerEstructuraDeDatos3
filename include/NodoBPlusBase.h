@@ -4,20 +4,22 @@ using namespace std;
 
 class NodoBPlusBase {
 protected:
-    int* claves;
-    int cant_claves;
+
     int orden;
     bool es_hoja;
+    int cant_claves;
+    int* claves;
 
 public:
     NodoBPlusBase(int orden, bool es_hoja);
     virtual ~NodoBPlusBase();
 
-    int getCantClaves() const;
-    int getClave(int idx) const;
     bool esHoja() const;
     int getOrden() const;
 
+    void setCantClaves(int cant);
+    int getCantClaves() const;
+
+    int getClave(int idx) const;
     void setClave(int idx, int valor);
-    void incrementarCantClaves();
 };

@@ -1,22 +1,20 @@
 #include "../include/NodoBInterno.h"
 
-NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false)
-{
-
-    hijos = new NodoBPlusBase*[orden + 1];
-    for (int i = 0; i < orden + 1; i++) hijos[i] = nullptr;
+NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false){
+    punteros = new NodoBPlusBase*[orden + 1];
+    for (int i = 0; i < orden + 1; i++) punteros[i] = nullptr;
 }
 
 NodoBInterno::~NodoBInterno() {
-    delete[] hijos;
+    delete[] punteros;
 }
 
 void NodoBInterno::setHijo(int index, NodoBPlusBase* ptr) {
-    hijos[index] = ptr;
+    punteros[index] = ptr;
 }
 
 NodoBPlusBase* NodoBInterno::getHijo(int index) const {
-    return hijos[index];
+    return punteros[index];
 }
 
 int NodoBInterno::buscar_siguiente(int clave) {
