@@ -1,7 +1,8 @@
 #include "../include/NodoBInterno.h"
 
-NodoBInterno::NodoBInterno(int orden){
-    NodoBPlusBase(orden, false)
+NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false)
+{
+
     hijos = new NodoBPlusBase*[orden + 1];
     for (int i = 0; i < orden + 1; i++) hijos[i] = nullptr;
 }

@@ -1,6 +1,5 @@
 
 #include "../include/NodoBPlusBase.h"
-#include "NodoBPlusBase.h"
 
 NodoBPlusBase::NodoBPlusBase(int orden, bool hoja){
     orden = orden;

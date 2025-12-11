@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Taller_3
         src/main.cpp
         src/NodoGrafo.cpp
-        include/NodoGrafo.h
         src/NodoBPlusBase.cpp
-        include/NodoBPlusBase.h)
+        src/NodoBHoja.cpp
+        src/NodoBInterno.cpp
+        include/NodoGrafo.h
+        include/NodoBPlusBase.h
+        include/NodoBHoja.h
+        include/NodoBInterno.h)
