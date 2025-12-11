@@ -2,6 +2,7 @@
 #include "NodoGrafo.h"
 
 class NodoArchivo: public NodoGrafo {
+
 private:
 
     int tamaño;
