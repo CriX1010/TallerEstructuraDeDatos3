@@ -2,6 +2,7 @@
 #include <iostream>
 
 NodoDirectorio::NodoDirectorio(int id):NodoGrafo(id) {
+
     this->lista_hijos_propio = nullptr;
     this->cant_hijos = 0;
 }

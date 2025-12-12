@@ -4,7 +4,9 @@
 
 #include "../include/ArbolB.h"
 
-#include <cstdlib>
+using namespace std;
+#include <iostream>
+
 
 ArbolB::ArbolB(const int Orden)
 {
@@ -12,7 +14,7 @@ ArbolB::ArbolB(const int Orden)
     this->raiz = new NodoBHoja(orden);
 }
 
-NodoGrafo* ArbolB::buscar(int clave)
+NodoGrafo* ArbolB::buscar(int clave) const
 {
     NodoBPlusBase* actual = raiz;
 
@@ -28,10 +30,10 @@ NodoGrafo* ArbolB::buscar(int clave)
         if (hoja->claves[i] == clave)
             return hoja->getDato(i);
     }
-
+    cout << "no se encontro el directorio con ese valor id" << endl;
     return nullptr;
 }
-NodoBHoja* ArbolB::buscarHoja(int clave){
+NodoBHoja* ArbolB::buscarHoja(int clave) const{
 
     NodoBPlusBase* actual = raiz;
 

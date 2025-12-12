@@ -8,14 +8,14 @@ private:
     NodoBPlusBase* raiz;
     int orden;
 
-    NodoBHoja* buscarHoja(int clave);
+    NodoBHoja* buscarHoja(int clave) const;
     void insertarEnHoja(NodoBHoja* hoja, int clave, NodoGrafo* dato);
 
 public:
     ArbolB(int Orden);
 
     void insertar(int clave, NodoGrafo* dato);
-    NodoGrafo* buscar(int clave);
+    NodoGrafo* buscar(int clave) const;
 
     void splitHojas(NodoBPlusBase* hoja);
     void splitInterno(NodoBInterno* interno);
