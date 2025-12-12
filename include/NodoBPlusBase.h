@@ -1,6 +1,7 @@
 #pragma once
 using namespace std;
 #include <cstddef>
+#include "NodoGrafo.h"
 
 class NodoBPlusBase {
 protected:
