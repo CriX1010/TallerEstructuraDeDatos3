@@ -9,6 +9,26 @@ NodoBInterno::~NodoBInterno() {
     delete[] punteros;
 }
 
+int NodoBInterno::insertarClaveEnInterno(int clave, NodoBPlusBase* hijoIzq, NodoBPlusBase* hijoDer)
+{
+    int i = 0;
+
+    while (i <= cant_claves && punteros[i] != hijoIzq)
+        i++;
+
+    for (int j = cant_claves; j > i; j--)
+        claves[j] = claves[j - 1];
+
+    for (int j = cant_claves + 1; j > i + 1; j--)
+        punteros[j] = punteros[j - 1];
+
+    claves[i] = clave;
+    punteros[i + 1] = hijoDer;
+
+    cant_claves++;
+
+    return i;
+}
 void NodoBInterno::setHijo(int index, NodoBPlusBase* ptr) {
     punteros[index] = ptr;
 }

@@ -8,10 +8,12 @@ protected:
 
     int orden;
     bool es_hoja;
+
+public:
+
     int cant_claves;
     int* claves;
 
-public:
     NodoBPlusBase(int orden, bool es_hoja);
     virtual ~NodoBPlusBase();
 
