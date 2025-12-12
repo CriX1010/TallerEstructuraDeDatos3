@@ -8,13 +8,16 @@ private:
     NodoGrafo** datos;
     NodoBHoja* siguiente_hoja;
 
-public:
-    NodoBHoja(int orden);
-    ~NodoBHoja();
 
-    void setDato(int idx, NodoGrafo* ptr);
-    NodoGrafo* getDato(int idx) const;
+public:
+    explicit NodoBHoja(int orden);
+    ~NodoBHoja() override;
+
+    void setDato(int idx, NodoGrafo* ptr) const;
+    [[nodiscard]] NodoGrafo* getDato(int idx) const;
 
     void setSiguiente(NodoBHoja* nxt);
-    NodoBHoja* getSiguiente() const;
+    [[nodiscard]] NodoBHoja* getSiguiente() const;
+
+
 };

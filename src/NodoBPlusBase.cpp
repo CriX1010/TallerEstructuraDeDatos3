@@ -2,13 +2,21 @@
 #include "../include/NodoBPlusBase.h"
 
 NodoBPlusBase::NodoBPlusBase(int orden, bool hoja){
-    orden = orden;
+    this->orden = orden;
     es_hoja = hoja;
     cant_claves = 0;
     claves = new int[orden];
+    padre = nullptr;
 }
 NodoBPlusBase::~NodoBPlusBase() {
     delete[] claves;
+}
+
+NodoBPlusBase *NodoBPlusBase::getPadre() {
+    return padre;
+}
+void NodoBPlusBase::setPadre(NodoBPlusBase* ptr) {
+    padre = ptr;
 }
 
 int NodoBPlusBase::getOrden() const {
@@ -29,7 +37,7 @@ int NodoBPlusBase::getCantClaves() const {
 int NodoBPlusBase::getClave(int index) const {
     return claves[index];
 }
-void NodoBPlusBase::setClave(int index, int valor) {
+void NodoBPlusBase::setClave(int index, int valor) const {
     claves[index] = valor;
 }
 

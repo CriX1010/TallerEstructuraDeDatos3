@@ -2,6 +2,8 @@
 #include <string>
 
 #include "ArbolB.h"
+#include "NodoArchivo.h"
+#include "NodoDirectorio.h"
 
 class Sistema {
 public:

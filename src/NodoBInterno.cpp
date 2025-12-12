@@ -3,6 +3,7 @@
 NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false){
     punteros = new NodoBPlusBase*[orden + 1];
     for (int i = 0; i < orden + 1; i++) punteros[i] = nullptr;
+    padre = nullptr;
 }
 
 NodoBInterno::~NodoBInterno() {
@@ -29,7 +30,7 @@ int NodoBInterno::insertarClaveEnInterno(int clave, NodoBPlusBase* hijoIzq, Nodo
 
     return i;
 }
-void NodoBInterno::setHijo(int index, NodoBPlusBase* ptr) {
+void NodoBInterno::setHijo(int index, NodoBPlusBase* ptr) const {
     punteros[index] = ptr;
 }
 

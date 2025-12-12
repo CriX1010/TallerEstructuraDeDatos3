@@ -1,7 +1,7 @@
 #pragma once
-#include "NodoBPlusBase.h"
-#include "NodoBHoja.h"
+
 #include "NodoBInterno.h"
+#include "NodoBHoja.h"
 
 class ArbolB {
 private:
@@ -12,17 +12,16 @@ private:
     void insertarEnHoja(NodoBHoja* hoja, int clave, NodoGrafo* dato);
 
 public:
-    ArbolB(int orden);
-
-    void splitHoja(NodoBHoja * hoja);
+    ArbolB(int Orden);
 
     void insertar(int clave, NodoGrafo* dato);
     NodoGrafo* buscar(int clave);
 
-    void splitHojas(NodoBHoja* hoja);
+    void splitHojas(NodoBPlusBase* hoja);
     void splitInterno(NodoBInterno* interno);
     void remove(int clave);
-    void removeFromLeaf(NodoBHoja* hoja, int clave);
+
+    void removeFromLeaf(NodoBPlusBase* hoja, int clave);
     void removeFromInternal(NodoBInterno* interno, int index);
     void fixUnderflow(NodoBPlusBase* nodo);
     void borrowFromLeft(NodoBPlusBase* nodo,int idxHermano);

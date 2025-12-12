@@ -7,8 +7,8 @@ private:
     int cant_hijos;
 
 public:
-    NodoDirectorio(int id);
-    ~NodoDirectorio();
+    explicit NodoDirectorio(int id);
+    ~NodoDirectorio() override;
     bool es_directorio() override { return true; }
     void agregarHijo(int id_hijo);
     void eliminarHijo(int id_hijo);

@@ -11,4 +11,4 @@ bool NodoGrafo::es_directorio() {
     return false;
 }
 
-NodoGrafo::~NodoGrafo(){}
+NodoGrafo::~NodoGrafo()= default;

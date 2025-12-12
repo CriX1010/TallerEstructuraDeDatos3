@@ -4,7 +4,7 @@ class NodoGrafo{
 private:
     int id;
 public:
-    NodoGrafo(int id);
+    explicit NodoGrafo(int id);
     virtual bool es_directorio();
     virtual int* lista_padres() = 0;
     virtual int* lista_hijos() = 0;

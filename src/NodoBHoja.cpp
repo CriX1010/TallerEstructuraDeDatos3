@@ -11,7 +11,7 @@ NodoBHoja::~NodoBHoja() {
     delete[] datos;
 }
 
-void NodoBHoja::setDato(int index, NodoGrafo* ptr) {
+void NodoBHoja::setDato(int index, NodoGrafo* ptr) const {
     datos[index] = ptr;
 }
 NodoGrafo* NodoBHoja::getDato(int index) const {

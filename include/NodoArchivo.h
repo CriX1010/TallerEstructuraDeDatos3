@@ -11,11 +11,12 @@ private:
 
 public:
     NodoArchivo(int id, int tamaño, int tipo);
-    ~NodoArchivo();
+    ~NodoArchivo() override;
     bool es_directorio() override { return false; }
-    int devolver_tipo();
-    int devolver_tamaño();
+    int devolver_tipo() const;
+    int devolver_tamaño() const;
     int* lista_padres() override;
     void agregar_padre(int id_padre);
     void eliminar_padre(int id_padre);
+    int* lista_hijos() override { return nullptr;};
 };

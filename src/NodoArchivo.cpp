@@ -14,11 +14,11 @@ int* NodoArchivo::lista_padres() {
     return this->lista_padres_propio;
 }
 
-int NodoArchivo::devolver_tipo() {
+int NodoArchivo::devolver_tipo() const {
     return this->tipo;
 }
 
-int NodoArchivo::devolver_tamaño() {
+int NodoArchivo::devolver_tamaño() const {
     return this->tamaño;
 }
 
@@ -46,4 +46,5 @@ void NodoArchivo::eliminar_padre(int id_padre) {
     this->lista_padres_propio = nueva_lista;
     this->cant_padres--;
 }
+
 
