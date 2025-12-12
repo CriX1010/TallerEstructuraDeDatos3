@@ -6,8 +6,8 @@ private:
 public:
     NodoGrafo(int id);
     virtual bool es_directorio();
-    int* lista_padres();
-    int obtener_id();
-    ~NodoGrafo();
+    virtual int* lista_padres();
+    virtual int obtener_id();
+    virtual ~NodoGrafo();
 };
 

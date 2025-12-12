@@ -1,4 +1,5 @@
 #include "../include/NodoDirectorio.h"
+#include <iostream>
 
 NodoDirectorio::NodoDirectorio(int id):NodoGrafo(id) {
     this->lista_hijos = nullptr;

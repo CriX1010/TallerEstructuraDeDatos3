@@ -16,4 +16,7 @@ add_executable(Taller_3
         include/NodoArchivo.h
         include/NodoBPlusBase.h
         include/NodoBHoja.h
-        include/NodoBInterno.h)
+        include/NodoBInterno.h
+        src/Sistema.cpp
+        include/Sistema.h
+        src/app.cpp)
