@@ -19,4 +19,6 @@ add_executable(Taller_3
         include/NodoBInterno.h
         src/Sistema.cpp
         include/Sistema.h
-        src/app.cpp)
+        src/app.cpp
+        include/ArbolB.h
+        src/ArbolB.cpp)
