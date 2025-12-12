@@ -21,4 +21,10 @@ add_executable(Taller_3
         include/Sistema.h
         src/app.cpp
         include/ArbolB.h
-        src/ArbolB.cpp)
+        src/ArbolB.cpp
+        src/Stack.cpp
+        include/Stack.h
+        src/Queue.cpp
+        include/Queue.h
+        src/Nodo.cpp
+        include/Nodo.h)
