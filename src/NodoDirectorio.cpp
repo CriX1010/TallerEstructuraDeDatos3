@@ -37,7 +37,18 @@ void NodoDirectorio::agregarHijo(int id_hijo) {
 void NodoDirectorio::eliminarHijo(int id_hijo) {
     if (this->cant_hijos == 0){return;}
 
-    int* nuevo = new int[this->cant_hijos-1];
+    int ocurrencias = 0;
+    for (int i = 0; i < cant_hijos; ++i) {
+        if (lista_hijos_propio[i] == id_hijo) ocurrencias++;
+    }
+
+    if (ocurrencias == 0) return;
+
+    int nuevaCant = cant_hijos - ocurrencias;
+    int* nuevo = nullptr;
+    if (nuevaCant > 0) {
+        nuevo = new int[nuevaCant];
+    }
     int  j = 0;
 
     for (int i = 0; i < this->cant_hijos; i++) {
@@ -48,5 +59,5 @@ void NodoDirectorio::eliminarHijo(int id_hijo) {
     }
     delete[] this->lista_hijos_propio;
     this->lista_hijos_propio = nuevo;
-    this->cant_hijos--;
+    this->cant_hijos = nuevaCant;
 }

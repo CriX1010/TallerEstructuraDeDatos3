@@ -30,7 +30,7 @@ NodoGrafo* ArbolB::buscar(int clave) const
         if (hoja->claves[i] == clave)
             return hoja->getDato(i);
     }
-    cout << "no se encontro el directorio con ese valor id" << endl;
+
     return nullptr;
 }
 NodoBHoja* ArbolB::buscarHoja(int clave) const{
@@ -66,10 +66,11 @@ void ArbolB::insertarEnHoja(NodoBHoja* hoja, int clave, NodoGrafo* dato)
 void ArbolB::insertar(int clave, NodoGrafo* dato)
 {
     NodoBHoja* hoja = buscarHoja(clave);
+    insertarEnHoja(hoja, clave, dato);
 
-    if (hoja->cant_claves == orden) {
+    int maxClaves = orden - 1;
+    if (hoja->cant_claves > maxClaves) {
         splitHojas(hoja);
-        hoja = buscarHoja(clave);
     }
 
     insertarEnHoja(hoja, clave, dato);
@@ -104,13 +105,22 @@ void ArbolB::splitHojas(NodoBPlusBase *hoja)
         nuevaRaiz->setHijo(0, hoja);
         nuevaRaiz->setHijo(1, (NodoBPlusBase*)nuevaHoja);
 
+        hoja->setPadre(nuevaRaiz);
+        nuevaHoja->setPadre(nuevaRaiz);
+
         raiz = nuevaRaiz;
         return;
     }
 
     auto* padre = (NodoBInterno*)Aux->getPadre();
-    if (padre ==NULL) {padre = new NodoBInterno(hoja->orden);}
-    int idx = padre->insertarClaveEnInterno(clavePromovida, hoja, (NodoBPlusBase*) nuevaHoja);
+    if (padre ==NULL) {
+        cout << "ERROR: hoja sin padre\n";
+        return;
+    }
+
+    nuevaHoja->setPadre(padre);
+
+    padre->insertarClaveEnInterno(clavePromovida, hoja, (NodoBPlusBase*)nuevaHoja);
 
     if (padre->cant_claves == orden)
         splitInterno(padre);
@@ -129,8 +139,11 @@ void ArbolB::splitInterno(NodoBInterno* interno)
     for (int i = 0; i < nuevoInterno->cant_claves; i++)
         nuevoInterno->claves[i] = interno->claves[mitad + 1 + i];
 
-    for (int i = 0; i <= nuevoInterno->cant_claves; i++)
-        nuevoInterno->setHijo(i, interno->getHijo(mitad + 1 + i));
+    for (int i = 0; i <= nuevoInterno->cant_claves; i++) {
+        NodoBPlusBase* hijo = interno->getHijo(mitad + 1 + i);
+        nuevoInterno->setHijo(i, hijo);
+        if (hijo) hijo -> setPadre(nuevoInterno);
+    }
 
     interno->cant_claves = mitad;
 
@@ -144,16 +157,28 @@ void ArbolB::splitInterno(NodoBInterno* interno)
         nuevaRaiz->setHijo(0, interno);
         nuevaRaiz->setHijo(1, nuevoInterno);
 
+        interno -> setPadre(nuevaRaiz);
+        nuevoInterno->setPadre(nuevaRaiz);
+
         raiz = nuevaRaiz;
         return;
     }
 
     auto* padre = (NodoBInterno*)interno->getPadre();
+    if (padre == nullptr) {
+        cout << "ERROR: interno sin padre.\n";
+        return;
+    }
+
+    nuevoInterno->setPadre(padre);
+
+    padre -> insertarClaveEnInterno(clavePromovida, interno, nuevoInterno);
 
     int idx = padre->insertarClaveEnInterno(clavePromovida, interno, nuevoInterno);
 
-    if (padre->cant_claves == orden)
+    if (padre->cant_claves == orden){
         splitInterno(padre);
+    }
 }
 
 void ArbolB::remove(int clave) {

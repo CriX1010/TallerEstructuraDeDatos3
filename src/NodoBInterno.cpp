@@ -1,8 +1,8 @@
 #include "../include/NodoBInterno.h"
 
 NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false){
-    punteros = new NodoBPlusBase*[orden + 1];
-    for (int i = 0; i < orden + 1; i++) punteros[i] = nullptr;
+    punteros = new NodoBPlusBase*[orden + 2];
+    for (int i = 0; i < orden + 2; i++) punteros[i] = nullptr;
     padre = nullptr;
 }
 
