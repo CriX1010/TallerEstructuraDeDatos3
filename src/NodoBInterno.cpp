@@ -1,4 +1,5 @@
 #include "../include/NodoBInterno.h"
+#include <iostream>
 
 NodoBInterno::NodoBInterno(int orden):NodoBPlusBase(orden, false){
     punteros = new NodoBPlusBase*[orden + 2];
@@ -17,6 +18,11 @@ int NodoBInterno::insertarClaveEnInterno(int clave, NodoBPlusBase* hijoIzq, Nodo
     while (i <= cant_claves && punteros[i] != hijoIzq)
         i++;
 
+    if (i > cant_claves) {
+        cout << "ERROR: hijoIzq no encontrado en insertarClaveEnInterno.\n";
+        return -1;
+    }
+
     for (int j = cant_claves; j > i; j--)
         claves[j] = claves[j - 1];
 
@@ -25,6 +31,10 @@ int NodoBInterno::insertarClaveEnInterno(int clave, NodoBPlusBase* hijoIzq, Nodo
 
     claves[i] = clave;
     punteros[i + 1] = hijoDer;
+
+    if (hijoDer) {
+        hijoDer->setPadre(this);
+    }
 
     cant_claves++;
 

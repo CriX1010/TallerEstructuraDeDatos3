@@ -73,6 +73,10 @@ void ArbolB::insertar(int clave, NodoGrafo* dato)
         splitHojas(hoja);
     }
 
+    if (buscar(clave) != nullptr) {
+        return;
+    }
+
     insertarEnHoja(hoja, clave, dato);
 }
 
@@ -122,7 +126,7 @@ void ArbolB::splitHojas(NodoBPlusBase *hoja)
 
     padre->insertarClaveEnInterno(clavePromovida, hoja, (NodoBPlusBase*)nuevaHoja);
 
-    if (padre->cant_claves == orden)
+    if (padre->cant_claves > orden)
         splitInterno(padre);
 }
 
@@ -174,9 +178,7 @@ void ArbolB::splitInterno(NodoBInterno* interno)
 
     padre -> insertarClaveEnInterno(clavePromovida, interno, nuevoInterno);
 
-    int idx = padre->insertarClaveEnInterno(clavePromovida, interno, nuevoInterno);
-
-    if (padre->cant_claves == orden){
+    if (padre->cant_claves > orden){
         splitInterno(padre);
     }
 }
