@@ -41,7 +41,7 @@ void Sistema::eliminar_Directorio(int id_padre, int id_propio) {
     if (Aux && Aux2) {
         Aux -> eliminarHijo(id_propio);
         Arbol -> remove(id_propio);
-        cout << "eliminaste el Directorio con la id: " << Id << endl;
+        cout << "eliminaste el Directorio con la id: " << id_propio << endl;
     } else if (!Aux2) {
         cout << "el directorio con id " << id_propio<< " no existe" << endl;
     } else {cout << "No se pudo eliminar el directorio" << endl;}
@@ -53,7 +53,7 @@ void Sistema::eliminar_Archivo(int id_padre, int id_propio) const{
     if (Aux && Aux2) {
         Aux -> eliminarHijo(id_propio);
         Arbol -> remove(id_propio);
-        cout << "eliminaste el Archivo con la id: " << Id << endl;
+        cout << "eliminaste el Archivo con la id: " << id_propio << endl;
     } else if (!Aux2) {
         cout << "el Archivo con id " << id_propio << " no existe" << endl;
     } else {cout << "No se pudo eliminar el Archivo" << endl;}
@@ -63,7 +63,7 @@ void Sistema::listar_contenido(int id_directorio) {
     NodoDirectorio* Aux = (NodoDirectorio*)Arbol -> buscar(id_directorio);
     if (Aux) {
         int* punteros = Aux->lista_hijos();
-        cout << "El directorio con id " << Id <<" Contiene : " << endl;
+        cout << "El directorio con id " << id_directorio <<" Contiene : " << endl;
         while (punteros) {
             auto* Aux = Arbol -> buscar(*punteros);
             if (Aux-> es_directorio()) {
@@ -77,13 +77,13 @@ void Sistema::listar_contenido(int id_directorio) {
 }
 
 std::string *Sistema::obtener_rutas_completas(int id_archivo) {
-
+    //no alcanzamos a hacerlo
 
     return nullptr;
 }
 
 int Sistema::calcular_espacio_ocupado(int id_directorio) {
-
+    //no se pudo hacer
 
     return 0;
 }

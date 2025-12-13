@@ -109,6 +109,7 @@ void ArbolB::splitHojas(NodoBPlusBase *hoja)
     }
 
     auto* padre = (NodoBInterno*)Aux->getPadre();
+    if (padre ==NULL) {padre = new NodoBInterno(hoja->orden);}
     int idx = padre->insertarClaveEnInterno(clavePromovida, hoja, (NodoBPlusBase*) nuevaHoja);
 
     if (padre->cant_claves == orden)

@@ -4,7 +4,6 @@ project(Taller_3)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Taller_3
-        src/main.cpp
         src/NodoGrafo.cpp
         src/NodoDirectorio.cpp
         src/NodoArchivo.cpp
